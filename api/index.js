@@ -147,7 +147,6 @@ app.get('/p/:id', async (req, res) => {
           <body>
             <h1>Paste Not Found</h1>
             <p>The requested paste does not exist or has expired.</p>
-            <a href="/">Create a new paste</a>
           </body>
         </html>
       `);
@@ -162,7 +161,6 @@ app.get('/p/:id', async (req, res) => {
           <body>
             <h1>Paste Not Available</h1>
             <p>This paste has expired or reached its view limit.</p>
-            <a href="/">Create a new paste</a>
           </body>
         </html>
       `);
