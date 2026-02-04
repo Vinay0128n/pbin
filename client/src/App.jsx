@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
-import { API_BASE_URL } from './config';
-
-interface PasteResponse {
-  id: string;
-  url: string;
-}
+import { API_BASE_URL } from './config.js';
 
 function App() {
   const [content, setContent] = useState('');
   const [ttlSeconds, setTtlSeconds] = useState('');
   const [maxViews, setMaxViews] = useState('');
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<PasteResponse | null>(null);
+  const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     setResult(null);
 
     try {
-      const requestBody: any = { content };
+      const requestBody = { content };
       
       if (ttlSeconds) {
         const ttl = parseInt(ttlSeconds);
@@ -53,7 +48,7 @@ function App() {
         throw new Error(errorData.error || 'Failed to create paste');
       }
 
-      const data: PasteResponse = await response.json();
+      const data = await response.json();
       setResult(data);
       setContent('');
       setTtlSeconds('');
