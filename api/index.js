@@ -207,7 +207,6 @@ app.get('/p/:id', async (req, res) => {
             ${paste.expires_at ? `<p>Expires: ${paste.expires_at.toLocaleString()}</p>` : ''}
           </div>
           <div class="paste-container">${escapedContent}</div>
-          <p style="margin-top: 20px;"><a href="/">Create a new paste</a></p>
         </body>
       </html>
     `);
